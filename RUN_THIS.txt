@@ -1,0 +1,104 @@
+╔═══════════════════════════════════════════════════════╗
+║                                                       ║
+║     LAWA DELIVERY - DATABASE SETUP KAISE KAREN       ║
+║                                                       ║
+╚═══════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 METHOD 1: Batch File (Sabse Aasaan!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. File Explorer kholo
+2. Is folder mein jao:
+   C:\Users\dell\Desktop\lawa-food-delivery\backend
+
+3. "CREATE_TABLES.bat" file par DOUBLE-CLICK karo
+
+4. PostgreSQL password dalo jab puchhe
+
+5. Done! Tables ban jayenge ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 METHOD 2: Command Prompt (Manual)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Windows key + R press karo
+2. Type karo: cmd
+3. Enter press karo
+4. Ye commands ek-ek karke run karo:
+
+   cd C:\Users\dell\Desktop\lawa-food-delivery\backend
+   
+   "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE lawa_delivery;"
+   
+   "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d lawa_delivery -f models\schema.sql
+   
+   "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -d lawa_delivery -c "\dt"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 METHOD 3: pgAdmin (GUI - Visual)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Windows Search mein type karo: pgAdmin 4
+
+2. Open karo, password dalo
+
+3. Left side: Servers → PostgreSQL 18 → Databases
+
+4. Databases par RIGHT CLICK → Create → Database
+   - Name: lawa_delivery
+   - Save
+
+5. lawa_delivery par RIGHT CLICK → Query Tool
+
+6. File Open icon (📁) click karo
+
+7. Select karo:
+   backend\models\schema.sql
+
+8. Execute button (▶️ ya F5) press karo
+
+9. Done! ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ VERIFY KARO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ye 5 tables dikhne chahiye:
+  ✓ cart
+  ✓ order_items
+  ✓ orders
+  ✓ products
+  ✓ users
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 BACKEND RESTART
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tables ban jane ke baad backend restart NAHI karna!
+Backend already chal raha hai - seedha test karo:
+
+1. Browser: http://localhost:8080
+2. Register button click karo
+3. Form bharo
+4. Sign Up!
+5. Success! ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 RECOMMENDATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FILE EXPLORER SE:
+  → CREATE_TABLES.bat par double-click karo
+  → Password dalo
+  → Done! ✅
+
+Sabse aasaan hai! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
