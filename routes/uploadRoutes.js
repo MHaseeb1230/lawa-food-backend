@@ -9,8 +9,12 @@ import { authenticateToken, isAdmin } from '../middleware/authMiddleware.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Vercel par filesystem (/var/task) read-only hoti hai, isliye /tmp use karo
+const uploadsDir = process.env.VERCEL
+  ? '/tmp/uploads'
+  : path.join(__dirname, '..', 'uploads');
+
 // Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '..', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
